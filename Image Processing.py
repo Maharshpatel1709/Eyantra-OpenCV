@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-import csv
 
 bird = cv2.imread('bird.jpg', 1)
 cat = cv2.imread('cat.jpg', 1)
@@ -18,13 +17,14 @@ hw = (horse.shape[1])
 
 # Task A
 
-with open('stats.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
+file = open('stats.csv', 'w')
 
-    writer.writerow(["bird.jpg", str(bh), str(bw), str(bird.shape[2]), str(bird[bh//2, bw//2][0]), str(bird[bh//2, bw//2][1]), str(bird[bh//2, bw//2][2])])
-    writer.writerow(["cat.jpg", str(ch), str(cw), str(cat.shape[2]), str(cat[ch // 2, cw // 2][0]), str(cat[ch // 2, cw // 2][1]), str(cat[ch // 2, cw // 2][2])])
-    writer.writerow(["flowers.jpg", str(fh), str(fw), str(flowers.shape[2]), str(flowers[fh // 2, fw // 2][0]), str(flowers[fh // 2, fw // 2][1]), str(flowers[fh // 2, fw // 2][2])])
-    writer.writerow(["horse.jpg", str(hh), str(hw), str(horse.shape[2]), str(horse[hh // 2, hw // 2][0]), str(horse[hh // 2, hw // 2][1]), str(horse[hh // 2, hw // 2][2])])
+file.write("bird.jpg"+","+str(bh)+","+str(bw)+","+str(bird.shape[2])+","+str(bird[bh//2, bw//2][0])+","+str(bird[bh//2, bw//2][1])+","+str(bird[bh//2, bw//2][2])+"\n"+
+"cat.jpg"+","+str(ch)+","+str(cw)+","+str(cat.shape[2])+","+str(cat[ch // 2, cw // 2][0])+","+str(cat[ch // 2, cw // 2][1])+","+str(cat[ch // 2, cw // 2][2])+"\n"+
+"flowers.jpg"+","+str(fh)+","+str(fw)+","+str(flowers.shape[2])+","+str(flowers[fh // 2, fw // 2][0])+","+str(flowers[fh // 2, fw // 2][1])+","+str(flowers[fh // 2, fw // 2][2])+"\n"+
+"horse.jpg"+","+str(hh)+","+str(hw)+","+str(horse.shape[2])+","+str(horse[hh // 2, hw // 2][0])+","+str(horse[hh // 2, hw // 2][1])+","+str(horse[hh // 2, hw // 2][2]))
+
+file.close()
 
 
 # Task B
